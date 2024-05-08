@@ -1,0 +1,8 @@
+com\book\mapper\UserMapper.class
+com\book\utils\ThymeleafUtil.class
+com\book\filter\MainFilter.class
+com\book\service\LoginService.class
+com\book\servlet\LoginServlet.class
+com\book\utils\MybatisUtil.class
+com\book\entity\User.class
+com\book\servlet\IndexServlet.class
