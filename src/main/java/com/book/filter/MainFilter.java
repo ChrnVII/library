@@ -18,14 +18,16 @@ public class MainFilter extends HttpFilter{
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse resp, FilterChain chain)throws IOException, ServletException {
         String url = req.getRequestURL().toString();
-        if (!url.contains("/static/") && !url.endsWith("login")) {
+        if (url.contains("/static/") || url.endsWith("login")) {
+            chain.doFilter(req, resp);
+        } else {
             HttpSession session = req.getSession();
             User user = (User) session.getAttribute("user");
             if (user == null) {
                 resp.sendRedirect("login");
+            } else {
+                chain.doFilter(req, resp);
             }
         }
-        //放行
-        chain.doFilter(req, resp);
     }
 }

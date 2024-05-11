@@ -8,4 +8,5 @@ public class User {
     String username;
     String nickname;
     String password;
+    String gender;
 }
